@@ -1,0 +1,44 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Shoess",
+            "disc": "Branded Quality shoes.",
+            "price": 999,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Shoe",
+            "disc": "Branded Quality shoes.",
+            "price": 222,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Sho",
+            "disc": "Branded Quality shoes.",
+            "price": 444,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Sh",
+            "disc": "Branded Quality shoes.",
+            "price": 888,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 5,
+            "name": "S",
+            "disc": "Branded Quality shoes.",
+            "price": 444,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        }
+    ]
+}
