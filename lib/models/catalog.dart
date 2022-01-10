@@ -19,36 +19,19 @@ class CatalogModels {
 
 class Item {
   final num id;
-  String name;
-  String disc;
+  final String name;
+  final String disc;
   num price;
   String color;
   String image;
 
   Item(
-      {required this.id,
-      required this.name,
-      required this.disc,
-      required this.price,
-      required this.color,
-      required this.image});
+      { this.id,
+       this.name,
+       this.disc,
+       this.price,
+       this.color,
+       this.image});
 
-  factory Item.fromMap(Map<String, dynamic> map) {
-    return Item(
-        id: map["id"],
-        name: map["name"],
-        disc: map["disc"],
-        price: map["price"],
-        color: map["color"],
-        image: map["image"]);
-  }
-
-  toMap() => {
-        "id": id,
-        "name": name,
-        "disc": disc,
-        "price": price,
-        "color": color,
-        "image": image
-      };
+  
 }
