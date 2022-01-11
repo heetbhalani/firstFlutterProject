@@ -1,8 +1,11 @@
 
 
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 
+// ignore: use_key_in_widget_constructors
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   moveToHome(BuildContext context) async {
     
-    if(_formKey.currentState!.validate()){
+    if(_formKey.currentState.validate()){
 
     setState(() {
       changeButton = true;
@@ -38,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Form(
             key: _formKey,
             child: Column(
+              // ignore: duplicate_ignore
               children: [
                 SizedBox(
                   height: 60.0,
@@ -53,7 +57,6 @@ class _LoginPageState extends State<LoginPage> {
                   height: 20.0,
                 ),
 
-                // ignore: prefer_const_constructors
                 Text(
                   "Welcome $name ",
                   style: TextStyle(fontSize: 40.0, color: Colors.black),

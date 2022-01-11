@@ -1,37 +1,50 @@
 class CatalogModels {
-  static List<Item> items = [
-    Item(
-        id: 1,
-        name: "Shoes",
-        disc: "Branded Quality shoes.",
-        price: 999,
-        color: "#33505a",
-        image: "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"),
-    Item(
-        id: 1,
-        name: "Shoes",
-        disc: "Branded Quality shoes.",
-        price: 99,
-        color: "#33505a",
-        image: "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg")
-  ];
+  static List<Item> items = 
+  Null as List<Item>;
+  // [
+  //   Item(
+  //       id: 1,
+  //       name: "Shoes",
+  //       disc: "Branded Quality shoes.",
+  //       price: 111,
+  //       color: "#33505a",
+  //       image: "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"),
+  // ];
 }
 
 class Item {
   final num id;
   final String name;
   final String disc;
-  num price;
-  String color;
-  String image;
+  final num price;
+  final String color;
+  final String image;
 
   Item(
       { this.id,
        this.name,
        this.disc,
-       this.price,
+      this.price,
        this.color,
        this.image});
 
-  
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        name: map["name"],
+        disc: map["disc"],
+        price: map["price"],
+        color: map["color"],
+        image: map["image"]);
+  }
+
+  toMap() => {
+        "id": id,
+        "name": name,
+        "disc": disc,
+        "price": price,
+        "color": color,
+        "image": image
+      };
+      
 }

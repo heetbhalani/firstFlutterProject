@@ -2,40 +2,64 @@
     "products": [
         {
             "id": 1,
-            "name": "Shoess",
-            "disc": "Branded Quality shoes.",
+            "name": "Mane",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
             "price": 999,
             "color": "#33505a",
             "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
         },
         {
             "id": 2,
-            "name": "Shoe",
-            "disc": "Branded Quality shoes.",
+            "name": "no",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
             "price": 222,
             "color": "#33505a",
             "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
         },
         {
             "id": 3,
-            "name": "Sho",
-            "disc": "Branded Quality shoes.",
+            "name": "avde.",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
             "price": 444,
             "color": "#33505a",
             "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
         },
         {
             "id": 4,
-            "name": "Sh",
-            "disc": "Branded Quality shoes.",
+            "name": "Mne",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
             "price": 888,
             "color": "#33505a",
             "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
         },
         {
             "id": 5,
-            "name": "S",
-            "disc": "Branded Quality shoes.",
+            "name": "ghare",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
+            "price": 444,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 6,
+            "name": "j",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
+            "price": 444,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 7,
+            "name": "avde.",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
+            "price": 444,
+            "color": "#33505a",
+            "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Trending",
+            "disc": "Branded Quality shoes.Ok buddy i found best shoes.",
             "price": 444,
             "color": "#33505a",
             "image": "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"

@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/utils/routes.dart';
+// import 'package:flutter_catalog/utils/routes.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
 
-  const ItemWidget({Key? key, required this.item})
+  const ItemWidget({Key key, this.item})
       : 
       // assert(item != null),
         super(key: key);
@@ -14,7 +14,8 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
+      // ignore: unrelated_type_equality_checks
+      child: (CatalogModels.items != Null && CatalogModels.items.isNotEmpty)? ListTile(
         
         leading: Image.network(item.image),
         title: Text(item.name),
@@ -22,9 +23,10 @@ class ItemWidget extends StatelessWidget {
         trailing: Text(
           "\$${item.price}",
           textScaleFactor: 1.5,
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         ),
-      ),
+      ) : const Center(
+         child:  CircularProgressIndicator()),
     );
   }
 }
