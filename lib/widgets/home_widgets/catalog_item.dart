@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+// import 'package:flutter_catalog/pages/login_page.dart';
+// import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -20,7 +22,10 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        CatalogImage(image: catalog.image),
+        Hero(
+          tag: Key(catalog.id.toString()),
+          child: CatalogImage(image: catalog.image),
+        ),
         Expanded(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,6 +38,7 @@ class CatalogItem extends StatelessWidget {
                   children: [
                     "\$${catalog.price}".text.bold.make(),
                     ElevatedButton(
+                        // ignore: void_checks
                         onPressed: () {},
                         style: ButtonStyle(
                             backgroundColor:
