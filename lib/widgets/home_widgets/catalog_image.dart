@@ -1,7 +1,8 @@
 // ignore_for_file: implementation_imports
 
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/widgets/theme.dart';
+// import 'package:flutter_catalog/widgets/theme.dart';
+import 'package:velocity_x/src/extensions/context_ext.dart';
 import 'package:velocity_x/src/flutter/container.dart';
 import 'package:velocity_x/src/flutter/padding.dart';
 import 'package:velocity_x/src/flutter/sizedbox.dart';
@@ -15,7 +16,7 @@ class CatalogImage extends StatelessWidget {
     return Image.network(image)
         .box
         .p12
-        .color(MyTheme.creamcolor)
+        .color(context.cardColor)
         .make()
         .py12()
         .px12()

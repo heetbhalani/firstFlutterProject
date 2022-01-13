@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 // import 'package:flutter_catalog/pages/login_page.dart';
 // import 'package:flutter_catalog/utils/routes.dart';
-import 'package:flutter_catalog/widgets/theme.dart';
+// import 'package:flutter_catalog/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 // import '../home_page.dart';
@@ -31,24 +32,26 @@ class CatalogItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-              catalog.name.text.xl.bold.make().pOnly(bottom: 8, top: 2),
-              catalog.disc.text.textStyle(context.captionStyle).make(),
+              catalog.name.text.xl.bold
+                  .color(context.accentColor)
+                  .make()
+                  .pOnly(bottom: 8, top: 2),
+              catalog.disc.text
+                  .color(context.accentColor)
+                  .textStyle(context.captionStyle)
+                  .make(),
               ButtonBar(alignment: MainAxisAlignment.spaceBetween,
                   //  buttonPadding: EdgeInsets.zero,
                   children: [
                     "\$${catalog.price}".text.bold.make(),
                     ElevatedButton(
                         // ignore: void_checks
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushNamed(context, MyRoutes.loginRoute),
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(MyTheme.darkBluish),
+                                MaterialStateProperty.all(context.theme.buttonColor),
                             shape: MaterialStateProperty.all(StadiumBorder())),
-                        child: "Buy now".text.bold.make().px2())
-
-
-
-
+                        child: "Buy now".text.bold.color(context.cardColor).make().px2())
                   ])
             ]))
       ],
@@ -56,6 +59,6 @@ class CatalogItem extends StatelessWidget {
 //py12 atle khali upar niche padding
 //px atle aju baju padding
 // pOnly() apde particular left right up down aem thay.
-        ).white.rounded.square(140).make().py12();
+        ).color(context.cardColor).rounded.square(140).make().py12();
   }
 }

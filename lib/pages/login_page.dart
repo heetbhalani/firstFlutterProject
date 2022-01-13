@@ -1,9 +1,8 @@
-
-
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, implementation_imports
 
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/routes.dart';
+import 'package:velocity_x/src/extensions/context_ext.dart';
 
 // ignore: use_key_in_widget_constructors
 class LoginPage extends StatefulWidget {
@@ -18,25 +17,23 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    
-    if(_formKey.currentState.validate()){
+    if (_formKey.currentState.validate()) {
+      setState(() {
+        changeButton = true;
+      });
 
-    setState(() {
-      changeButton = true;
-    });
-
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      changeButton = false;
-    });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -80,9 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                       validator: (value) {
                         if (value != null && value.isEmpty) {
                           return "User name can't be empty.";
-                        } 
-                          return null;
-                        
+                        }
+                        return null;
                       },
                     ),
                     SizedBox(
@@ -100,48 +96,51 @@ class _LoginPageState extends State<LoginPage> {
                             return "Password length must be minimum 8.";
                           }
                           return null;
-                        }
-                        ),
+                        }),
                   ]),
                 ),
 
                 SizedBox(height: 40.0),
 
-                InkWell(
-                  onTap: () => moveToHome(context),
-                  child: AnimatedContainer(
-                    duration: Duration(seconds: 1),
-                    alignment: Alignment.center,
-                    height: 40,
-                    width: changeButton ? 40 : 150,
-                    child: changeButton
-                        ? Icon(
-                            Icons.done,
-                            color: Colors.white,
-                          )
-                        : Text(
-                            "Submit",
-                            style: TextStyle(
-                                // fontWeight : FontWeight.bold,
-                                fontSize: 18,
-                                color: Colors.white),
-                          ),
-                    // color: Colors.deepPurple,
-                    decoration: BoxDecoration(
-                        borderRadius: changeButton
-                            ? BorderRadius.circular(50)
-                            : BorderRadius.circular(10),
-                        color: Colors.deepPurple),
+                Material(
+                  // ignore: deprecated_member_use
+                  color: context.theme.buttonColor,
+                  borderRadius: BorderRadius.circular(changeButton? 50 : 8), 
+                  child: InkWell(
+                    onTap: () => moveToHome(context),
+                    child: AnimatedContainer(
+                      duration: Duration(seconds: 1),
+                      alignment: Alignment.center,
+                      height: 40,
+                      width: changeButton ? 40 : 150,
+                      child: changeButton
+                          ? Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            )
+                          : Text(
+                              "Submit",
+                              style: TextStyle(
+                                  // fontWeight : FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.white),
+                            ),
+                      // color: Colors.deepPurple,
+                      decoration: BoxDecoration(
+                          borderRadius: changeButton
+                              ? BorderRadius.circular(50)
+                              : BorderRadius.circular(10),
+                          color: Colors.deepPurple),
+                    ),
                   ),
                 )
-
 
                 // this is button but instead of button we are using container because we want animation.
                 // ElevatedButton(
                 //     onPressed: () {
                 //       // print("Yes buddy I am printed");
 
-                      // Navigator.pushNamed(context, MyRoutes.homeRoute);
+                // Navigator.pushNamed(context, MyRoutes.homeRoute);
                 //     },
                 //     child: Text("Submit"),
                 //     style: TextButton.styleFrom(

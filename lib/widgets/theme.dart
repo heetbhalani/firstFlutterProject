@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,9 +8,11 @@ class MyTheme {
   static ThemeData lighTheme(BuildContext context) {
     return ThemeData(
         primarySwatch: Colors.deepPurple,
+        cardColor: Colors.white,
+        canvasColor: creamcolor,
+        buttonColor: darkBluish,
+        accentColor: Colors.black,
         fontFamily: GoogleFonts.openSans().fontFamily,
-        cardColor: creamcolor,
-        canvasColor: darkBluish,
         appBarTheme: AppBarTheme(
           color: creamcolor,
           elevation: 0.0,
@@ -29,14 +31,16 @@ class MyTheme {
     return ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.deepPurple,
-        cardColor: lightBluish,
+        cardColor: Colors.black,
         canvasColor: darkCreamcolor,
+        buttonColor: lightBluish,
+        accentColor: Colors.white,
         fontFamily: GoogleFonts.openSans().fontFamily,
         appBarTheme: AppBarTheme(
           color: lightBluish,
           elevation: 0.0,
           iconTheme: IconThemeData(
-            color: Colors.black,
+            color: Colors.white,
           ),
           titleTextStyle: TextStyle(
             color: Colors.black,
@@ -48,7 +52,7 @@ class MyTheme {
 
   //colors
   static Color creamcolor = const Color(0xfff5f5f5);
-  static Color darkCreamcolor = Vx.gray800;
+  static Color darkCreamcolor = Vx.gray900;
   static Color darkBluish = const Color(0xff403b55);
-  static Color lightBluish = Vx.purple900;
+  static Color lightBluish = Vx.indigo500;
 }

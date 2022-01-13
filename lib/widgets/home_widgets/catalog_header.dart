@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/widgets/theme.dart';
+// import 'package:flutter_catalog/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 
@@ -11,8 +11,8 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Catalog App".text.xl4.color(MyTheme.darkBluish).extraBold.make(),
-        "Fresh Sale".text.xl3.color(MyTheme.darkBluish).semiBold.make(),
+        "Catalog App".text.xl4.color(context.accentColor).extraBold.make(),
+        "Fresh Sale".text.xl3.color(context.accentColor).semiBold.make().pOnly(bottom: 15),
       ],
     );
   }
