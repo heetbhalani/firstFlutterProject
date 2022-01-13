@@ -19,16 +19,25 @@ class HomeDetailPage extends StatelessWidget {
       bottomNavigationBar: ButtonBar(alignment: MainAxisAlignment.spaceBetween,
           //  buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${catalog.price}".text.bold.make(),
+            // backgroundColor(context.cardColor), //aa some reason nthi chaltu
+            // backgroundColor(Theme.of(context).cardColor), // aa pan n ai chaltu
+            "\$${catalog.price}"
+                .text
+                .xl4
+                .color(MyTheme.darkBluish)
+                .bold
+                .make()
+                .pOnly(left: 12),
             ElevatedButton(
-                // ignore: void_checks
-                onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(MyTheme.darkBluish),
-                    // ignore: prefer_const_constructors
-                    shape: MaterialStateProperty.all(StadiumBorder())),
-                child: "Buy now".text.center.bold.make().wh(120, 40))
+                    // ignore: void_checks
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluish),
+                        // ignore: prefer_const_constructors
+                        shape: MaterialStateProperty.all(StadiumBorder())),
+                    child: "Buy now".text.center.bold.make())
+                .wh(120, 40),
           ]),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -39,7 +48,7 @@ class HomeDetailPage extends StatelessWidget {
               tag: Key(catalog.id.toString()),
               child: Image.network(catalog.image)
                   .h32(context)
-                  .backgroundColor(Colors.red)
+                  .backgroundColor(Colors.white)
                   .p16(),
             ).h32(context),
             Expanded(
@@ -56,6 +65,11 @@ class HomeDetailPage extends StatelessWidget {
                       catalog.name.text.xl4.bold.make().pOnly(bottom: 15),
                       catalog.disc.text.xl
                           .textStyle(context.captionStyle)
+                          .make()
+                          .px12(),
+                      10.heightBox,
+                      "Clita sanctus diam sit justo nonumy. Et ipsum eos amet sit amet, ipsum amet sea sanctus magna kasd voluptua amet.."
+                          .text
                           .make()
                           .px12(),
                     ],

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/home_widgets/catalog_header.dart';
 import 'package:flutter_catalog/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter_catalog/widgets/theme.dart';
@@ -29,8 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(const Duration(seconds: 5));
-
+    await Future.delayed(const Duration(seconds: 0));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final decodedata = jsonDecode(catalogJson);
@@ -46,32 +47,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(20, (index) => CatalogModels.items[0]);
     return Scaffold(
-        backgroundColor: MyTheme.creamcolor,
-        body: SafeArea(
-          child: Container(
-            padding: Vx.m32,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CatalogHeader(),
-                if (CatalogModels.items != null &&
-                    CatalogModels.items.isNotEmpty)
-                  CatalogList().expand()
-                else
-                  CircularProgressIndicator().centered().pOnly(top: 50).expand(),
-              ],
-            ),
+      backgroundColor: MyTheme.creamcolor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        backgroundColor: MyTheme.darkBluish,
+        child: Icon(CupertinoIcons.cart),
+      ),
+      body: SafeArea(
+        child: Container(
+          padding: Vx.m32,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CatalogHeader(),
+              if (CatalogModels.items != null && CatalogModels.items.isNotEmpty)
+                CatalogList().expand()
+              else
+                CircularProgressIndicator().centered().pOnly(top: 50).expand(),
+            ],
           ),
         ),
-        drawer: MyDrawer(),);
+      ),
+      drawer: MyDrawer(),
+    );
   }
 }
-
-
-
-
-
-
 
 // this is Old code (list view ) till  we reach nearly 5-hour in  codepur video.
 
