@@ -37,13 +37,13 @@ class MyTheme {
         accentColor: Colors.white,
         fontFamily: GoogleFonts.openSans().fontFamily,
         appBarTheme: AppBarTheme(
-          color: lightBluish,
+          color: darkCreamcolor,
           elevation: 0.0,
           iconTheme: IconThemeData(
             color: Colors.white,
           ),
           titleTextStyle: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),

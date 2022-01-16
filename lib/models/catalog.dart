@@ -1,6 +1,7 @@
 class CatalogModels {
-  static List<Item> items = 
-  Null as List<Item>;
+  static List<Item> items;
+  //  = 
+  // Null as List<Item>;
   // [
   //   Item(
   //       id: 1,
@@ -10,6 +11,13 @@ class CatalogModels {
   //       color: "#33505a",
   //       image: "https://m.media-amazon.com/images/I/5100tEPcncS._UL1500_.jpg"),
   // ];
+
+  static getById(int id) {
+    // ignore: null_closures
+    return items.firstWhere((element) => element.id == id, orElse: null);
+
+  }
+  static getByPosition(int pos) => items[pos];
 }
 
 class Item {
