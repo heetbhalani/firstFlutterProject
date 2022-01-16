@@ -56,7 +56,10 @@ class _LoginPageState extends State<LoginPage> {
 
                 Text(
                   "Welcome $name ",
-                  style: TextStyle(fontSize: 40.0, color: Colors.black),
+                  // ignore: deprecated_member_use
+                  style: TextStyle(
+                      // ignore: deprecated_member_use
+                      fontSize: 40.0, color: Theme.of(context).accentColor),
                 ),
 
                 SizedBox(
@@ -105,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                 Material(
                   // ignore: deprecated_member_use
                   color: context.theme.buttonColor,
-                  borderRadius: BorderRadius.circular(changeButton? 50 : 8), 
+                  borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
                   child: InkWell(
                     onTap: () => moveToHome(context),
                     child: AnimatedContainer(

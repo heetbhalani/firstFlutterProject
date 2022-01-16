@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
     final decodedata = jsonDecode(catalogJson);
     var productData = decodedata["products"];
 
-    CatalogModels.items =
+    CatalogModel.items =
         List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
 
     setState(() {});
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CatalogHeader(),
-              if (CatalogModels.items != null && CatalogModels.items.isNotEmpty)
+              if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
                 CatalogList().expand()
               else
                 CircularProgressIndicator().centered().pOnly(top: 50).expand(),

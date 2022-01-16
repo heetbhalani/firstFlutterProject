@@ -15,7 +15,7 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       // ignore: unrelated_type_equality_checks
-      child: (CatalogModels.items != Null && CatalogModels.items.isNotEmpty)? ListTile(
+      child: (CatalogModel.items != Null && CatalogModel.items.isNotEmpty)? ListTile(
         
         leading: Image.network(item.image),
         title: Text(item.name),

@@ -16,9 +16,9 @@ class CatalogList extends StatelessWidget {
     return Container(
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: CatalogModels.items.length,
+        itemCount: CatalogModel.items.length,
         itemBuilder: (context, index) {
-          final catalog = CatalogModels.getByPosition(index);
+          final catalog = CatalogModel.items[index];
           return InkWell(
             onTap: () => Navigator.push(
                 context,
