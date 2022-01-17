@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/models/cart.dart';
 // import 'package:flutter_catalog/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -29,13 +30,14 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = CartModel();
     return SizedBox(
       height: 50,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           // ignore: deprecated_member_use
-          " Total: \$999".text.xl4.color(context.theme.accentColor).make(),
+          " Total: \$${_cart.totalPrice}".text.xl4.color(context.theme.accentColor).make(),
           ElevatedButton(
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -63,10 +65,11 @@ class _CartList extends StatefulWidget {
 }
 
 class __CartListState extends State<_CartList> {
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: _cart.items?.length,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
           onTap: () {},
@@ -75,7 +78,7 @@ class __CartListState extends State<_CartList> {
             icon: Icon(Icons.remove_circle_outline),
             onPressed: () {},
           ),
-          title: "Item1 checked".text.make(),
+          title: _cart.items[index].name.text.make(),
         );
       },
     );
