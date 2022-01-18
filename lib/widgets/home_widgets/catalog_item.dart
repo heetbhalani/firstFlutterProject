@@ -50,4 +50,3 @@ class CatalogItem extends StatelessWidget {
         ).color(context.cardColor).rounded.square(140).make().py12();
   }
 }
-

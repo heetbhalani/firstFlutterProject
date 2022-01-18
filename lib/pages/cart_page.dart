@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/core/store.dart';
 import 'package:flutter_catalog/models/cart.dart';
-// import 'package:flutter_catalog/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
@@ -26,11 +26,10 @@ class CartPage extends StatelessWidget {
 }
 
 class _CartTotal extends StatelessWidget {
-  const _CartTotal({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final CartModel _cart = (VxState.store as MyStore).cart;
+ 
     return SizedBox(
       height: 50,
       child: Row(
@@ -60,16 +59,8 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  _CartList({Key key}) : super(key: key);
-
-  @override
-  __CartListState createState() => __CartListState();
-}
-
-class __CartListState extends State<_CartList> {
-  final _cart = CartModel();
+class _CartList extends StatelessWidget {
+  final CartModel _cart = (VxState.store as MyStore).cart;
   @override
   Widget build(BuildContext context) {
     return _cart.items.isEmpty
@@ -87,7 +78,7 @@ class __CartListState extends State<_CartList> {
                   icon: Icon(Icons.remove_circle_outline),
                   onPressed: () {
                     _cart.remove(_cart.items[index]);
-                    setState(() {}); 
+                    // setState(() {});
                   },
                 ),
                 title: _cart.items[index].name.text.make(),

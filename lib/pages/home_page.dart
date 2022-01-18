@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(const Duration(seconds: 0));
+    await Future.delayed(const Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final decodedata = jsonDecode(catalogJson);
@@ -49,10 +49,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
-        
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
         // ignore: deprecated_member_use
-        backgroundColor:context.theme.buttonColor,
+        backgroundColor: context.theme.buttonColor,
         child: Icon(CupertinoIcons.cart),
       ),
       body: SafeArea(
