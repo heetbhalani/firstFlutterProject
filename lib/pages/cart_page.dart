@@ -36,8 +36,12 @@ class _CartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          // ignore: deprecated_member_use
-          " Total: \$${_cart.totalPrice}".text.xl4.color(context.theme.accentColor).make(),
+          " Total: \$${_cart.totalPrice}"
+              .text
+              .xl4
+              // ignore: deprecated_member_use
+              .color(context.theme.accentColor)
+              .make(),
           ElevatedButton(
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -68,19 +72,27 @@ class __CartListState extends State<_CartList> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items?.length,
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          onTap: () {},
-          leading: Icon(Icons.done),
-          trailing: IconButton(
-            icon: Icon(Icons.remove_circle_outline),
-            onPressed: () {},
-          ),
-          title: _cart.items[index].name.text.make(),
-        );
-      },
-    );
+    return _cart.items.isEmpty
+        ? "Nothing to show.\nPlease add\nsomething in your\ncart."
+            .text
+            .xl4
+            .makeCentered()
+        : ListView.builder(
+            itemCount: _cart.items?.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                onTap: () {},
+                leading: Icon(Icons.done),
+                trailing: IconButton(
+                  icon: Icon(Icons.remove_circle_outline),
+                  onPressed: () {
+                    _cart.remove(_cart.items[index]);
+                    setState(() {}); 
+                  },
+                ),
+                title: _cart.items[index].name.text.make(),
+              );
+            },
+          );
   }
 }
